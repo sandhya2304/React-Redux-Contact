@@ -1,0 +1,11 @@
+$theme-colors: (
+  "primary": pink,
+  "danger": #ff4136
+);
+
+
+@import "~bootstrap/scss/bootstrap";
+
+body{
+    padding-top: 5rem;
+}

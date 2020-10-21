@@ -1,10 +1,17 @@
 import React from 'react';
-import './App.css';
+import Contacts from './components/contacts/Contacts';
+import Navbar from './components/layout/Navbar';
+import './styles/App.scss';
 
 function App() {
   return (
     <div className="App">
-       <h1>Hello </h1>
+       <Navbar />
+       <div className="container">
+         <div className="py-3">
+            <Contacts />
+         </div>
+       </div>
     </div>
   );
 }
