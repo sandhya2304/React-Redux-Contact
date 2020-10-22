@@ -2,10 +2,13 @@ import React from 'react';
 import Contacts from './components/contacts/Contacts';
 import Navbar from './components/layout/Navbar';
 import './styles/App.scss';
+import {Provider} from 'react-redux';
+import store from './store';
 
 function App() {
   return (
-    <div className="App">
+    <Provider store={store}>
+      <div className="App">
        <Navbar />
        <div className="container">
          <div className="py-3">
@@ -13,6 +16,7 @@ function App() {
          </div>
        </div>
     </div>
+    </Provider>
   );
 }
 

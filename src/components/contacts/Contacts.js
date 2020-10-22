@@ -1,9 +1,13 @@
 import React from 'react'
+import { useSelector} from 'react-redux';
 
 const Contacts = () => {
+
+const contacts = useSelector(state => state.contacts)
+console.log(contacts);
     return (
         <div>
-            <table class="table table-light">
+            <table className="table table-light">
   <thead>
     <tr>
       <th scope="col">#</th>
