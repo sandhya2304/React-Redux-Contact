@@ -4,7 +4,7 @@ import Contact from './Contact';
 
 const Contacts = () => {
 
-const contacts = useSelector(state => state.contacts)
+const contacts = useSelector(state => state.contact.contacts);
 
     return (
         <div>
@@ -27,7 +27,7 @@ const contacts = useSelector(state => state.contacts)
   <tbody>
    {
          contacts.map((contact => 
-         <Contact contact={ contact } />
+         <Contact contact={ contact } key={contact.id} />
           ))
    }
 
