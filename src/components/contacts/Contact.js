@@ -1,10 +1,11 @@
 import React from 'react';
 import Avatar from 'react-avatar';
+import { Link } from 'react-router-dom';
 
 
 const Contact = ({contact}) =>{
 
-    const {name,phone,email} = contact;
+    const {name,phone,email,id} = contact;
 
     return (
 
@@ -20,10 +21,10 @@ const Contact = ({contact}) =>{
          <td>{phone}</td>
          <td>{email}</td>
          <td className="actions">
-             <a href="#">
+             <Link to= {`/contact/editContact/${id}`}>
                  <span className="material-icons mr-2">edit</span>
 
-             </a>
+             </Link>
              <a href="#">
                  <span className="material-icons">remove_circle</span>
 
