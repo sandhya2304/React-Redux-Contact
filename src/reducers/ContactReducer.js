@@ -1,4 +1,5 @@
-import { CREATE_CONTACT ,EDIT_CONTACT, UPDATE_CONTACT}   from '../constant/types';
+import { deleteSelectedContact } from '../actions/ContactAction';
+import { CLEAR_CONTACT, CREATE_CONTACT ,DELETE_CONTACT,EDIT_CONTACT, SELECT_CONTACT, UPDATE_CONTACT}   from '../constant/types';
 
 const initialState = {
     
@@ -234,7 +235,8 @@ const initialState = {
         }
         }
         ],
-        contact : null
+        contact : null,
+        selectedContacts : []
 
 };
 
@@ -260,8 +262,36 @@ export const contactReducer =(state = initialState,action) =>{
                 return {
                     ...state,
                     contacts : state.contacts.map(contact => 
-                    contact.id == action.payload.id ? action.payload:contact),
+                    contact.id == action.payload.id ? action.payload : contact),
                 };
+
+                case DELETE_CONTACT:
+                    return {
+                        ...state,
+                        contacts : state.contacts.filter((contact) => contact.id != action.payload)
+                    };
+
+                case deleteSelectedContact:
+                        return{
+                            ...state,
+                            contacts : [],
+
+                        };
+
+                case SELECT_CONTACT:
+                        return{
+                            ...state,
+                            selectedContacts : action.payload
+
+                        };
+
+                case CLEAR_CONTACT:
+                        return{
+                            ...state,
+                            selectedContacts : [],
+
+                        };
+                        
         default:
             return state;
     }
